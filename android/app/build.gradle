@@ -1,0 +1,24 @@
+apply plugin: "com.android.application"
+
+android {
+    namespace "com.unionhubapp"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.unionhubapp"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+    }
+}
+
+dependencies {
+    implementation("com.facebook.react:react-android:0.74.5")
+}
