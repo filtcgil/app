@@ -1,6 +1,10 @@
 export interface Folder {
   id: string;
   name: string;
-  children: Folder[];
-  files?: FileItem[];
+}
+
+export interface FileItem {
+  id: string;
+  name: string;
+  mimeType: string;
 }
