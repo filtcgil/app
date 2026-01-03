@@ -1,39 +1,68 @@
 import React, { useEffect, useState } from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
-import { getFolderContents } from '../api/driveApi';
 import FolderGridItem from '../components/FolderGridItem';
 import EmptyState from '../components/EmptyState';
+import { getFolderContents } from '../api/driveApi';
 import { Folder, FileItem } from '../models/Folder';
 
+type DriveItem = (Folder | FileItem) & {
+  type: 'folder' | 'file';
+};
+
 export default function FolderScreen({ route, navigation }: any) {
-  const { folderId } = route.params;
-  const [folders, setFolders] = useState<Folder[]>([]);
-  const [files, setFiles] = useState<FileItem[]>([]);
+  const { folderId, title } = route.params;
+
+  const [items, setItems] = useState<DriveItem[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getFolderContents(folderId).then(({ folders, files }) => {
-      setFolders(folders);
-      setFiles(files);
-    });
-  }, [folderId]);
+    navigation.setOptions({ title });
 
-  if (!folders.length && !files.length) return <EmptyState message="Cartella vuota" />;
+    getFolderContents(folderId)
+      .then(({ folders, files }) => {
+        const merged: DriveItem[] = [
+          ...folders.map(f => ({ ...f, type: 'folder' })),
+          ...files.map(f => ({ ...f, type: 'file' }))
+        ];
+        setItems(merged);
+      })
+      .finally(() => setLoading(false));
+  }, [folderId, title, navigation]);
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={folders}
+        data={items}
         keyExtractor={item => item.id}
         numColumns={2}
         renderItem={({ item }) => (
           <FolderGridItem
             name={item.name}
-            onPress={() => navigation.push('Folder', { folderId: item.id, title: item.name })}
+            isFile={item.type === 'file'}
+            onPress={() => {
+              if (item.type === 'folder') {
+                navigation.push('Folder', {
+                  folderId: item.id,
+                  title: item.name
+                });
+              } else {
+                // STEP 5 → apertura / download file
+              }
+            }}
           />
         )}
+        ListEmptyComponent={
+          !loading ? <EmptyState message="Cartella vuota" /> : null
+        }
       />
     </View>
   );
 }
 
-const styles = StyleSheet.create({ container: { flex: 1, padding: 10 } });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: '#ffffff'
+  }
+});
