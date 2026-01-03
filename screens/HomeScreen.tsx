@@ -7,12 +7,13 @@ import { Folder } from '../models/Folder';
 
 export default function HomeScreen({ navigation }: any) {
   const [folders, setFolders] = useState<Folder[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getRootFolders().then(setFolders);
+    getRootFolders()
+      .then(setFolders)
+      .finally(() => setLoading(false));
   }, []);
-
-  if (!folders.length) return <EmptyState message="Nessuna cartella disponibile" />;
 
   return (
     <View style={styles.container}>
@@ -23,12 +24,28 @@ export default function HomeScreen({ navigation }: any) {
         renderItem={({ item }) => (
           <FolderGridItem
             name={item.name}
-            onPress={() => navigation.push('Folder', { folderId: item.id, title: item.name })}
+            onPress={() =>
+              navigation.navigate('Folder', {
+                folderId: item.id,
+                title: item.name
+              })
+            }
           />
         )}
+        ListEmptyComponent={
+          !loading ? (
+            <EmptyState message="Nessuna cartella disponibile" />
+          ) : null
+        }
       />
     </View>
   );
 }
 
-const styles = StyleSheet.create({ container: { flex: 1, padding: 10 } });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: '#ffffff'
+  }
+});
