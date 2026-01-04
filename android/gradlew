@@ -6,17 +6,6 @@
 ##
 ###############################################################################
 
-# OS specific support. $var _must_ be set to this value
-cygwin=false
-darwin=false
-mingw=false
-case "`uname`" in
-  CYGWIN*) cygwin=true ;;
-  Darwin*) darwin=true ;;
-  MINGW*) mingw=true ;;
-esac
-
-# Attempt to set APP_HOME
 PRG="$0"
 while [ -h "$PRG" ] ; do
   ls=$(ls -ld "$PRG")
@@ -31,10 +20,8 @@ done
 APP_HOME=$(dirname "$PRG")
 APP_HOME=$(cd "$APP_HOME" && pwd)
 
-# Default JVM options
 DEFAULT_JVM_OPTS="-Xmx1024m -Xms64m"
 
-# If JAVA_HOME is set, use it
 if [ -n "$JAVA_HOME" ] ; then
   JAVACMD="$JAVA_HOME/bin/java"
 else
@@ -43,5 +30,4 @@ fi
 
 CLASSPATH="$APP_HOME/gradle/wrapper/gradle-wrapper.jar"
 
-# Execute Gradle Wrapper
 exec "$JAVACMD" $DEFAULT_JVM_OPTS -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain "$@"
