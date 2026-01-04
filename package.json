@@ -20,7 +20,9 @@
   "devDependencies": {
     "@react-native-community/cli": "^15.0.0",
     "@react-native-community/cli-platform-android": "^15.0.0",
-    "@react-native/babel-preset": "^0.74.0",
+    "@react-native/babel-preset": "0.74.5",
+    "metro-react-native-babel-preset": "0.76.8",
+    "@types/react": "^18.2.37",
     "typescript": "5.0.4"
   },
   "engines": {
