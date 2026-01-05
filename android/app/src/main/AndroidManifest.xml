@@ -4,6 +4,7 @@
     <application
         android:name=".MainApplication"
         android:label="UnionHub"
+        android:icon="@mipmap/ic_launcher"
         android:allowBackup="false"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
