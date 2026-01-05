@@ -1,8 +1,21 @@
+# Node
 node_modules/
-android/.gradle/
-.gradle/
-gradle-*/
-*.zip
-FETCH_HEAD
-Run
+npm-debug.log*
+yarn-error.log*
 
+# Android / Gradle
+android/.gradle/
+android/build/
+android/app/build/
+.gradle/
+
+# Gradle wrapper / local gradle
+gradle-8.6/
+gradle-8.6-bin.zip
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
