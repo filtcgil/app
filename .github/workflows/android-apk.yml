@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30 # Aumentato leggermente per sicurezza
 
     steps:
       - name: Checkout repository
@@ -25,13 +25,8 @@ jobs:
       - name: Setup Java 17
         uses: actions/setup-java@v4
         with:
-          distribution: temurin
-          java-version: 17
-
-      - name: Clear Gradle cache
-        run: |
-          rm -rf ~/.gradle/caches
-          rm -rf ~/.gradle/wrapper
+          distribution: 'temurin'
+          java-version: '17'
 
       - name: Make gradlew executable
         run: chmod +x android/gradlew
@@ -42,39 +37,6 @@ jobs:
           ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Upload Debug APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: UnionHub-debug-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk        run: chmod +x android/gradlew
-
-      - name: Build Debug APK
-        run: |
-          cd android
-          ./gradlew assembleDebug --no-daemon --stacktrace
-
-      - name: Upload Debug APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: UnionHub-debug-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
-      - name: Build Debug APK
-        run: |
-          cd android
-          ./gradlew assembleDebug --no-daemon --stacktrace
-
-      - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: UnionHub-debug-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk          cd android
-          ./gradlew assembleDebug
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: UnionHub-debug-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
-      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: UnionHub-debug-apk
