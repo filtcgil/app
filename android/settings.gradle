@@ -1,5 +1,6 @@
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    // Cambia FAIL_ON_PROJECT_REPOS in PREFER_SETTINGS o rimuovi il blocco
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS) 
     repositories {
         google()
         mavenCentral()
