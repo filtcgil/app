@@ -9,11 +9,12 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
-        // L'ordine qui è fondamentale per evitare il 403
         google()
-        maven { url "https://maven.google.com" }
-        maven { url "https://plugins.gradle.org/m2/" }
-        mavenCentral() 
+        // Mirror di Cloudflare: molto più affidabile per GitHub Actions
+        maven { url "https://cloudflare.com/maven" } 
+        // JitPack come backup per librerie ostiche
+        maven { url "https://jitpack.io" }
+        mavenCentral()
     }
 }
 
