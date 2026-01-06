@@ -1,6 +1,13 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
 dependencyResolutionManagement {
-    // Cambia FAIL_ON_PROJECT_REPOS in PREFER_SETTINGS o rimuovi il blocco
-    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS) 
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT) // Cambiato qui
     repositories {
         google()
         mavenCentral()
