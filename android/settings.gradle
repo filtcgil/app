@@ -10,11 +10,11 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
-        // Mirror di Cloudflare: molto più affidabile per GitHub Actions
-        maven { url "https://cloudflare.com/maven" } 
-        // JitPack come backup per librerie ostiche
-        maven { url "https://jitpack.io" }
-        mavenCentral()
+        maven { url "https://maven.google.com" }
+        // Se proprio serve Maven, usiamo la versione HTTPS forzata
+        maven { 
+            url "https://repo.maven.apache.org/maven2/"
+            allowInsecureProtocol = false
     }
 }
 
