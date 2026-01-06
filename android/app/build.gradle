@@ -3,7 +3,6 @@ apply plugin: "org.jetbrains.kotlin.android"
 
 android {
     namespace "com.unionhub.app"
-
     compileSdk 34
 
     defaultConfig {
@@ -21,9 +20,7 @@ android {
         release {
             minifyEnabled false
             shrinkResources false
-            proguardFiles getDefaultProguardFile(
-                "proguard-android-optimize.txt"
-            ), "proguard-rules.pro"
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
 
@@ -38,14 +35,6 @@ android {
 }
 
 dependencies {
-    implementation("com.facebook.react:react-android:0.74.5")
-}
-    kotlinOptions {
-        jvmTarget = "17"
-    }
-}
-
-dependencies {
     // React Native
     implementation("com.facebook.react:react-android:0.74.5")
 
@@ -53,6 +42,6 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.core:core-ktx:1.13.1")
 
-    // Material (necessario per AppTheme)
+    // Material Design
     implementation("com.google.android.material:material:1.11.0")
 }
