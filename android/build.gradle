@@ -39,4 +39,9 @@ android {
 
 dependencies {
     implementation("com.facebook.react:react-android:0.74.5")
+}    }
+}
+
+dependencies {
+    implementation("com.facebook.react:react-android:0.74.5")
 }
