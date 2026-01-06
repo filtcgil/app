@@ -4,7 +4,7 @@
         android:name=".MainApplication"
         android:label="UnionHub"
         android:allowBackup="false"
-        android:theme="@style/Theme.Material3.DayNight.NoActionBar">
+        android:theme="@style/AppTheme"
 
         <activity
             android:name=".MainActivity"
