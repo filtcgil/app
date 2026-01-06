@@ -1,25 +1,32 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
+apply plugin: "com.facebook.react"
 
 android {
     namespace "com.unionhub.app"
 
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
         applicationId "com.unionhub.app"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
 
     buildTypes {
-        release {
-            minifyEnabled false
-        }
         debug {
             debuggable true
+        }
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
 
@@ -34,5 +41,13 @@ android {
 }
 
 dependencies {
+    // React Native
     implementation("com.facebook.react:react-android:0.74.5")
+
+    // AndroidX
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("androidx.core:core-ktx:1.13.1")
+
+    // Material (necessario per AppTheme)
+    implementation("com.google.android.material:material:1.11.0")
 }
