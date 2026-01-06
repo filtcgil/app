@@ -8,18 +8,12 @@ buildscript {
     }
     repositories {
         google()
-        // Mirror alternativo per evitare il blocco IP
-        maven { url "https://plugins.gradle.org/m2/" }
-        mavenCentral {
-            content {
-                // Forza l'uso di Maven solo per ciò che non è in Google
-                excludeGroup "com.google.guava"
-            }
-        }
+        maven { url "https://maven.google.com" }
+        // Rimosso mavenCentral() temporaneamente per bypassare il 403
     }
     dependencies {
         classpath("com.android.tools.build:gradle:8.2.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24")
     }
 }
 
@@ -27,6 +21,5 @@ allprojects {
     repositories {
         google()
         maven { url "https://maven.google.com" }
-        mavenCentral()
     }
 }
