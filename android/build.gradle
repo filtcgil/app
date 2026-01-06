@@ -6,13 +6,14 @@ buildscript {
         targetSdkVersion = 34
         kotlinVersion = "1.9.24"
     }
+    buildscript {
     repositories {
         google()
-        mavenCentral()
-        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://maven.google.com" }
+        // Rimuoviamo mavenCentral() temporaneamente per forzare Google
     }
     dependencies {
         classpath("com.android.tools.build:gradle:8.2.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24")
     }
 }
