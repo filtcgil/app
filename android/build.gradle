@@ -4,7 +4,6 @@ buildscript {
         minSdkVersion = 24
         compileSdkVersion = 34
         targetSdkVersion = 34
-        ndkVersion = "26.1.10909125" // Aggiungi questa per React Native 0.74
         kotlinVersion = "1.9.24"
     }
     repositories {
@@ -17,9 +16,4 @@ buildscript {
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
+// Rimosso il blocco allprojects perché ora è gestito da settings.gradle
