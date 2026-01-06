@@ -34,7 +34,7 @@ jobs:
       - name: Build Debug APK
         run: |
           cd android
-          ./gradlew assembleDebug --no-daemon -PmaxParallelForks=2 -Dorg.gradle.jvmargs="-Xmx4g"
+          ./gradlew assembleDebug --no-daemon --stacktrace --refresh-dependencies
 
 
       - name: Upload Debug APK
