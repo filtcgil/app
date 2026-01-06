@@ -2,39 +2,55 @@ package com.unionhub.app;
 
 import android.app.Application;
 
-import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
-import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
+import com.facebook.react.ReactHost;
 import com.facebook.react.defaults.DefaultReactNativeHost;
+import com.facebook.react.defaults.DefaultReactHost;
 
 import java.util.List;
+import java.util.Collections;
 
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
       new DefaultReactNativeHost(this) {
+
         @Override
         public boolean getUseDeveloperSupport() {
-          return BuildConfig.DEBUG;
+          return true;
         }
 
         @Override
         protected List<ReactPackage> getPackages() {
-          List<ReactPackage> packages = new PackageList(this).getPackages();
-          return packages;
+          return Collections.emptyList();
         }
 
         @Override
         protected String getJSMainModuleName() {
           return "index";
         }
+      };
 
-        @Override
-        protected boolean isNewArchEnabled() {
-          return BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
-        }
+  @Override
+  public ReactNativeHost getReactNativeHost() {
+    return mReactNativeHost;
+  }
+
+  @Override
+  public ReactHost getReactHost() {
+    return DefaultReactHost.getDefaultReactHost(
+        getApplicationContext(),
+        mReactNativeHost
+    );
+  }
+
+  @Override
+  public void onCreate() {
+    super.onCreate();
+  }
+}        }
 
         @Override
         protected Boolean isHermesEnabled() {
