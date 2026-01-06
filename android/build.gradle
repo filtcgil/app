@@ -1,3 +1,5 @@
+// build.gradle root project
+
 buildscript {
     repositories {
         google()
@@ -13,3 +15,5 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+    }
+}
