@@ -2,13 +2,14 @@ apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 
 android {
-    namespace "com.unionhubapp"
-    compileSdk rootProject.ext.compileSdkVersion
+    namespace "com.unionhub.app"
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.unionhubapp"
-        minSdk rootProject.ext.minSdkVersion
-        targetSdk rootProject.ext.targetSdkVersion
+        applicationId "com.unionhub.app"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
     }
