@@ -1,7 +1,7 @@
 pluginManagement {
     repositories {
         google()
-        mavenCentral()
+        maven { url "https://maven.google.com" }
         gradlePluginPortal()
     }
 }
@@ -10,7 +10,7 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
-        mavenCentral()
+        maven { url "https://maven.google.com" }
     }
 }
 
