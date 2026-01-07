@@ -5,17 +5,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import FolderScreen from './src/screens/FolderScreen';
 
-export type RootStackParamList = {
-  Home: undefined;
-  Folder: { title?: string };
-};
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator>
         <Stack.Screen
           name="Home"
           component={HomeScreen}
@@ -24,7 +19,7 @@ export default function App() {
         <Stack.Screen
           name="Folder"
           component={FolderScreen}
-          options={({ route }) => ({
+          options={({ route }: any) => ({
             title: route.params?.title ?? 'Cartella',
           })}
         />
