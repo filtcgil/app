@@ -50,40 +50,4 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
   }
-}  public ReactNativeHost getReactNativeHost() {
-    return mReactNativeHost;
-  }
-
-  @Override
-  public ReactHost getReactHost() {
-    return DefaultReactHost.getDefaultReactHost(
-        getApplicationContext(),
-        mReactNativeHost
-    );
-  }
-
-  @Override
-  public void onCreate() {
-    super.onCreate();
-  }
-}        }
-
-        @Override
-        protected Boolean isHermesEnabled() {
-          return BuildConfig.IS_HERMES_ENABLED;
-        }
-      };
-
-  @Override
-  public ReactNativeHost getReactNativeHost() {
-    return mReactNativeHost;
-  }
-
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
-      DefaultNewArchitectureEntryPoint.load();
-    }
-  }
 }
