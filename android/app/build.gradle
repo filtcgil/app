@@ -1,6 +1,6 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
-apply from: "../../node_modules/react-native/react.gradle"
+apply plugin: "com.facebook.react"
 
 android {
     namespace "com.unionhub.app"
@@ -28,5 +28,5 @@ android {
 }
 
 dependencies {
-    implementation("com.facebook.react:react-android")
+    // ❌ NON aggiungere react-android manualmente
 }
