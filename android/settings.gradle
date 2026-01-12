@@ -1,4 +1,4 @@
-// settings.gradle
+// android/settings.gradle
 
 pluginManagement {
     repositories {
