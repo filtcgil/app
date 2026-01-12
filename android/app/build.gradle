@@ -1,17 +1,17 @@
 apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
 
-// Applicazione del React Native CLI
+// React Native CLI gestisce automaticamente le librerie
 apply from: "../../node_modules/react-native/react.gradle"
 
 android {
     namespace "com.unionhub.app"
-    compileSdkVersion 33
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
         applicationId "com.unionhub.app"
-        minSdkVersion 21
-        targetSdkVersion 33
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
     }
@@ -20,6 +20,7 @@ android {
         debug {
             applicationIdSuffix ".debug"
             versionNameSuffix "-debug"
+            minifyEnabled false
         }
         release {
             minifyEnabled false
@@ -36,7 +37,6 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
-    // Librerie necessarie per React Native
-    implementation "com.facebook.react:react-android"  // Sarà risolto dal react.gradle
+    // Material3
     implementation 'com.google.android.material:material:1.9.0'
 }
