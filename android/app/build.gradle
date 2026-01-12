@@ -1,14 +1,17 @@
 apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
 
+// Applicazione del React Native CLI
+apply from: "../../node_modules/react-native/react.gradle"
+
 android {
     namespace "com.unionhub.app"
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.unionhub.app"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion 21
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
     }
@@ -17,12 +20,10 @@ android {
         debug {
             applicationIdSuffix ".debug"
             versionNameSuffix "-debug"
-            minifyEnabled false
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig null
         }
     }
 
@@ -35,8 +36,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
-    // React Native NON va aggiunto qui come dependency Maven
-    // Verrà collegato automaticamente dal CLI tramite autolinking
-    // React Native viene incluso automaticamente
-    implementation 'com.google.android.material:material:1.9.0' // <--- aggiungi questa
+    // Librerie necessarie per React Native
+    implementation "com.facebook.react:react-android"  // Sarà risolto dal react.gradle
+    implementation 'com.google.android.material:material:1.9.0'
 }
