@@ -1,4 +1,3 @@
-// Deve essere il primo blocco
 pluginManagement {
     repositories {
         gradlePluginPortal()
