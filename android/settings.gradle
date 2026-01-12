@@ -17,3 +17,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "UnionHubApp"
 include(":app")
+
+// React Native viene collegato automaticamente dal CLI, non serve includerlo come project
