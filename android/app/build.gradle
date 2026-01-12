@@ -35,6 +35,6 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
-    // React Native NON va messo qui come project
-    implementation "com.facebook.react:react-native:0.71.11"  // Metti la tua versione RN
+    // React Native NON va aggiunto qui come dependency Maven
+    // Verrà collegato automaticamente dal CLI tramite autolinking
 }
