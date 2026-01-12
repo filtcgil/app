@@ -1,5 +1,9 @@
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+
 android {
     namespace "com.unionhub.app"
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
         applicationId "com.unionhub.app"
@@ -9,7 +13,21 @@ android {
         versionName "1.0"
     }
 
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig null
+        }
+    }
+
     buildFeatures {
         buildConfig true
     }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "com.facebook.react:react-native:+" // RN autodetect
 }
