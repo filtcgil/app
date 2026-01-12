@@ -37,4 +37,6 @@ dependencies {
 
     // React Native NON va aggiunto qui come dependency Maven
     // Verrà collegato automaticamente dal CLI tramite autolinking
+    // React Native viene incluso automaticamente
+    implementation 'com.google.android.material:material:1.9.0' // <--- aggiungi questa
 }
