@@ -20,7 +20,7 @@ export default function App() {
           name="Folder"
           component={FolderScreen}
           options={({ route }: any) => ({
-            title: route.params?.title ?? 'Cartella',
+            title: route.params?.title ?? 'Cartella'
           })}
         />
       </Stack.Navigator>
