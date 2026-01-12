@@ -1,6 +1,4 @@
-rootProject.name = "UnionHubApp"
-include(":app")
-
+// Deve essere il primo blocco
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -17,3 +15,6 @@ dependencyResolutionManagement {
         maven { url "https://jitpack.io" }
     }
 }
+
+rootProject.name = "UnionHubApp"
+include(":app")
