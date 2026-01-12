@@ -1,3 +1,6 @@
+rootProject.name = "UnionHubApp"
+include(":app")
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -14,8 +17,3 @@ dependencyResolutionManagement {
         maven { url "https://jitpack.io" }
     }
 }
-
-rootProject.name = "UnionHubApp"
-include(":app")
-
-// React Native viene collegato automaticamente dal CLI, non serve includerlo come project
