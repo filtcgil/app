@@ -9,6 +9,9 @@ import com.facebook.react.PackageList;
 
 import java.util.List;
 
+// IMPORT FONDAMENTALE
+import com.unionhub.app.BuildConfig;
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
@@ -21,8 +24,7 @@ public class MainApplication extends Application implements ReactApplication {
 
         @Override
         protected List<ReactPackage> getPackages() {
-          List<ReactPackage> packages = new PackageList(this).getPackages();
-          return packages;
+          return new PackageList(this).getPackages();
         }
 
         @Override
@@ -34,10 +36,5 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public ReactNativeHost getReactNativeHost() {
     return mReactNativeHost;
-  }
-
-  @Override
-  public void onCreate() {
-    super.onCreate();
   }
 }
