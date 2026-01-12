@@ -1,8 +1,6 @@
-// android/build.gradle
-
 buildscript {
     ext {
-        buildToolsVersion = "33.0.2"
+        buildToolsVersion = "33.0.1"
         minSdkVersion = 21
         compileSdkVersion = 33
         targetSdkVersion = 33
@@ -22,6 +20,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven { url "https://jitpack.io" }
+        maven { url 'https://jitpack.io' }
     }
 }
