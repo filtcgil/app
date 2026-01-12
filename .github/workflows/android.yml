@@ -2,55 +2,66 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 45
 
     steps:
+      # 1️⃣ Checkout codice
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Make gradlew executable
-        run: chmod +x android/gradlew
-
+      # 2️⃣ Node.js (React Native)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: npm
 
+      # 3️⃣ Install dipendenze JS
       - name: Install JS dependencies
         run: npm install
 
+      # 4️⃣ Java 17 (obbligatorio per AGP 8.x)
       - name: Setup Java 17
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: temurin
+          java-version: 17
 
-      - name: Clean Android build
-        working-directory: ./android
-        run: ./gradlew clean
+      # 5️⃣ Android SDK
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
 
+      # 6️⃣ Permessi gradlew
+      - name: Grant execute permission for gradlew
+        run: chmod +x android/gradlew
+
+      # 7️⃣ Pulizia build
+      - name: Clean build
+        run: |
+          cd android
+          ./gradlew clean
+
+      # 8️⃣ Build APK Debug
       - name: Build Debug APK
-        working-directory: ./android
-        run: ./gradlew assembleDebug --no-daemon --no-parallel --max-workers=1
+        run: |
+          cd android
+          ./gradlew assembleDebug \
+            --no-daemon \
+            --no-parallel \
+            --max-workers=1 \
+            -Dorg.gradle.internal.http.socketTimeout=120000 \
+            -Dorg.gradle.internal.http.connectionTimeout=120000
 
+      # 9️⃣ Upload APK
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
           name: UnionHub-debug-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
-
-      - name: Build Release APK
-        working-directory: ./android
-        run: ./gradlew assembleRelease --no-daemon --no-parallel --max-workers=1
-
-      - name: Upload Release APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: UnionHub-release-apk
-          path: android/app/build/outputs/apk/release/app-release.apk
