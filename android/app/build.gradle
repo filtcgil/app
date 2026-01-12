@@ -1,5 +1,3 @@
-// android/app/build.gradle
-
 apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
 
@@ -37,6 +35,6 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
-    // Usa React Native locale
-    implementation project(':react-native')
+    // React Native NON va messo qui come project
+    implementation "com.facebook.react:react-native:0.71.11"  // Metti la tua versione RN
 }
