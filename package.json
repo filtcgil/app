@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.74.5",
+    "react-native": "0.71.11",
 
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@react-native-community/cli": "^15.0.0",
-    "@react-native-community/cli-platform-android": "^15.0.0",
+    "@react-native-community/cli-platform-android": "^11.3.7",
     "typescript": "5.0.4"
   },
   "engines": {
