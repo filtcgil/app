@@ -6,14 +6,8 @@ buildscript {
         targetSdkVersion = 34
         kotlinVersion = "1.8.22"
     }
+}
 
-    repositories {
-        google()
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath("com.android.tools.build:gradle:8.1.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
-    }
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
 }
