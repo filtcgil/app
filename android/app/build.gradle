@@ -38,5 +38,6 @@ android {
 }
 
 dependencies {
+    implementation("com.google.android.material:material:1.11.0")
     // React Native gestisce le dipendenze automaticamente
 }
