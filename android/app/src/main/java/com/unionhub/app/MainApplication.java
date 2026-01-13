@@ -2,6 +2,7 @@ package com.unionhub.app;
 
 import android.app.Application;
 
+import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -14,6 +15,7 @@ public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
       new DefaultReactNativeHost(this) {
+
         @Override
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
@@ -21,8 +23,7 @@ public class MainApplication extends Application implements ReactApplication {
 
         @Override
         protected List<ReactPackage> getPackages() {
-          // Autolinking gestito da React Native
-          return super.getPackages();
+          return new PackageList(this).getPackages();
         }
 
         @Override
