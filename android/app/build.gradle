@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.unionhub.app"
-        minSdkVersion 23
+        minSdkVersion 21
         targetSdkVersion 33
         versionCode 1
         versionName "1.0"
@@ -37,10 +37,6 @@ android {
     }
 }
 
-/**
- * ⚠️ NON forzare dipendenze React Native
- * rompe PackageList e autolinking
- */
 dependencies {
     implementation("com.google.android.material:material:1.10.0")
 }
