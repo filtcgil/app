@@ -4,12 +4,12 @@ apply plugin: "com.facebook.react"
 
 android {
     namespace "com.unionhub.app"
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.unionhub.app"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion 23
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
     }
@@ -38,24 +38,9 @@ android {
 }
 
 /**
- * 🔴 BLOCCO CRITICO
- * Allinea le dipendenze a compileSdk 33
+ * ⚠️ NON forzare dipendenze React Native
+ * rompe PackageList e autolinking
  */
-configurations.all {
-    resolutionStrategy {
-        force "androidx.activity:activity:1.7.2"
-        force "androidx.activity:activity-ktx:1.7.2"
-        force "com.google.android.material:material:1.10.0"
-    }
-}
-
 dependencies {
-    // ✅ React Native core (OBBLIGATORIO)
-    implementation("com.facebook.react:react-android")
-
-    // ✅ Hermes (se RN moderno, altrimenti non compila)
-    implementation("com.facebook.react:hermes-android")
-
-    // ✅ Material compatibile con SDK 33
     implementation("com.google.android.material:material:1.10.0")
 }
