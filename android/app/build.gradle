@@ -39,7 +39,7 @@ android {
 
 /**
  * 🔴 BLOCCO CRITICO
- * Mantiene tutte le dipendenze compatibili con compileSdk 33
+ * Allinea le dipendenze a compileSdk 33
  */
 configurations.all {
     resolutionStrategy {
@@ -50,6 +50,12 @@ configurations.all {
 }
 
 dependencies {
+    // ✅ React Native core (OBBLIGATORIO)
+    implementation("com.facebook.react:react-android")
+
+    // ✅ Hermes (se RN moderno, altrimenti non compila)
+    implementation("com.facebook.react:hermes-android")
+
+    // ✅ Material compatibile con SDK 33
     implementation("com.google.android.material:material:1.10.0")
-    // React Native gestisce le altre dipendenze automaticamente
 }
