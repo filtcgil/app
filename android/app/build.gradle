@@ -39,17 +39,17 @@ android {
 
 /**
  * 🔴 BLOCCO CRITICO
- * Forza versioni compatibili con compileSdk 33
- * Evita errore: androidx.activity:activity:1.8.0 → SDK 34
+ * Mantiene tutte le dipendenze compatibili con compileSdk 33
  */
 configurations.all {
     resolutionStrategy {
         force "androidx.activity:activity:1.7.2"
         force "androidx.activity:activity-ktx:1.7.2"
+        force "com.google.android.material:material:1.10.0"
     }
 }
 
 dependencies {
-    implementation("com.google.android.material:material:1.11.0")
-    // React Native gestisce le dipendenze automaticamente
+    implementation("com.google.android.material:material:1.10.0")
+    // React Native gestisce le altre dipendenze automaticamente
 }
