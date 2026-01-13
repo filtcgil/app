@@ -25,7 +25,7 @@ jobs:
 
       # 3️⃣ Install dipendenze JS
       - name: Install JS dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       # 4️⃣ Java 17 (obbligatorio per AGP 8.x)
       - name: Setup Java 17
