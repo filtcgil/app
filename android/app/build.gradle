@@ -1,14 +1,13 @@
 apply plugin: "com.android.application"
-apply plugin: "org.jetbrains.kotlin.android"
 
 android {
     namespace "com.unionhub.app"
-    compileSdk 34
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.unionhub.app"
-        minSdk 21
-        targetSdk 34
+        minSdkVersion 21
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
     }
@@ -19,7 +18,6 @@ android {
         }
         release {
             minifyEnabled false
-            shrinkResources false
         }
     }
 
@@ -27,12 +25,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-
-    kotlinOptions {
-        jvmTarget = "17"
-    }
 }
 
 dependencies {
-    implementation("com.google.android.material:material:1.11.0")
+    implementation("com.facebook.react:react-native:0.71.11")
 }
