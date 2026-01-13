@@ -1,0 +1,10 @@
+{
+  "name": "UnionHubApp",
+  "displayName": "UnionHub",
+  "expo": {
+    "name": "UnionHub",
+    "slug": "UnionHubApp",
+    "platforms": ["android", "ios"],
+    "version": "1.0.0"
+  }
+}
