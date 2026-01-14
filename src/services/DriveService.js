@@ -1,8 +1,9 @@
-// Placeholder per l'integrazione con Google Drive
-export async function getDriveFolders() {
-  // TODO: chiamata API Drive con permessi in base all'utente
-  return [
-    { id: '1', name: 'Documenti Azienda' },
-    { id: '2', name: 'Procedure' }
-  ];
-}
+export const fetchDriveFolders = async () => {
+  try {
+    const response = await fetch('API_ENDPOINT_FOR_GOOGLE_DRIVE_FOLDERS');
+    const data = await response.json();
+    return data.folders;
+  } catch (error) {
+    throw new Error('Error fetching folders');
+  }
+};
